@@ -22,14 +22,8 @@
       var t5 = ["a5","b5","c5","d5","e5"];
       var t6 = ["a6","b6","c6","d6","e6"];
       var t7 = ["a7","b7","c7","d7","e7"];
+      var t8 = ["a8","b8","c8","d8","e8"];
 
-      var mt1 = ["ma1","mb1","mc1","md1","me1"];
-      var mt2 = ["ma2","mb2","mc2","md2","me2"];
-      var mt3 = ["ma3","mb3","mc3","md3","me3"];
-      var mt4 = ["ma4","mb4","mc4","md4","me4"];
-      var mt5 = ["ma5","mb5","mc5","md5","me5"];
-      var mt6 = ["ma6","mb6","mc6","md6","me6"];
-      var mt7 = ["ma7","mb7","mc7","md7","me7"];
 
       function toWhite(a){
          document.getElementById(a).style.backgroundColor="white";
@@ -38,7 +32,7 @@
          document.getElementById(a).style.backgroundColor="aquamarine";
       }
       
-      const ch = document.createElement("audio");
+      /*const ch = document.createElement("audio");
       //ch.src = "https://nssh.tk/sound/國文課.wav";
       const en = document.createElement("audio");
       //en.src = "https://nssh.tk/sound/英文課.wav";
@@ -57,14 +51,12 @@
       const ta = document.createElement("audio");
       //ta.src = "https://nssh.tk/sound/彈性課.wav";
       const ps = document.createElement("audio");
-      //ps.src = "https://nssh.tk/sound/體育課.wav";
-
-      const change = document.createElement("audio");
-      //change.src = "https://nssh.tk/sound/調課通知.wav"; 
+      //ps.src = "https://nssh.tk/sound/體育課.wav";*/
 
 
       var count = 0;
-
+	//var day=1, h=8, m=0; //for speeder
+	
       function checkUpdateColors(){
          
          var d = new Date(); 
@@ -73,14 +65,24 @@
          var day = d.getDay(); //Sun=0, Mon=1
          
    
+		//speeder
+		/*m++;
+		if(m>60){
+			h++;
+			m=0;
+		}
+		if(h>23){
+			day++;
+			h=0;
+		}*/
+		 
+   
         if(m>=0&&m<=5){
             count=0;
         }
 
 
-
-
-        if(count==0&&( h==8&&m==19&&(day>=1&&day<=5) )){
+        /*if(count==0&&( h==8&&m==19&&(day>=1&&day<=5) )){
             ta.play(); //彈性
             count++;
          }else if(count==0&&((h==15&&m==29&&day==1) || (h==11&&m==19&&(day==2||day==3)) || (h==13&&m==29&&(day==4||day==5)) || (h==14&&m==29&&day==5) )){
@@ -110,59 +112,47 @@
          }else if(count==0&&( h==11&&m==19&&day==1 )){
             ps.play(); //體育
             count++;
-         }
+         }*/
+		 
+		 
 
-
-
-         if((h==16&&m>=10) || (h>=17)){ //第一節：前一天的16:10-24:00
-            toWhite(t7[day-1]);
-            toWhite(mt7[day-1]);
+         if((h>=17)){ //第一節：前一天的17:00-24:00
+            toWhite(t8[day-1]);
             toColor(t1[day]);
-            toColor(mt1[day]);
          }
-         else if((h<=8)){ //第一節：0:00-8:59
+         else if((h<=8) || (h==8 && m<40)){ //第一節：0:00-8:39
             if(day-2 >= 0){
                toWhite(t7[day-2]);
-               toWhite(mt7[day-2]);
             }
             toColor(t1[day-1]);
-            toColor(mt1[day-1]);
          }
-         else if(h==9){ //第二節：上午9:00-9:59
+         else if((h==8&&m>=40)||(h==9&&m<40)){ //第二節：上午8:40-9:39
             toWhite(t1[day-1]);
-            toWhite(mt1[day-1]);
             toColor(t2[day-1]);
-            toColor(mt2[day-1]);
          }
-         else if(h==10){ //第三節：上午10:00-10:59
+         else if((h==9&&m>=40)||(h==10&&m<40)){ //第三節：上午9:40-10:39
             toWhite(t2[day-1]);
-            toWhite(mt2[day-1]);
             toColor(t3[day-1]);
-            toColor(mt3[day-1]);
          } 
-         else if(h==11){ //第四節：11:00-11:59
+         else if((h==40&&m>=40)||(h==11&&m<40)){ //第四節：10:40-11:39
             toWhite(t3[day-1]);
-            toWhite(mt3[day-1]);
             toColor(t4[day-1]);
-            toColor(mt4[day-1]);
          }
-         else if((h==12) || (h==13) || (h==14&&m<=9)){ //第五節：12:00-14:09 
+         else if((h==11&&m>=40)||(h==12)||(h==13&&m<40)){ //第五節：11:40-13:39 
             toWhite(t4[day-1]);
-            toWhite(mt4[day-1]);
             toColor(t5[day-1]);
-            toColor(mt5[day-1]);
          }
-         else if((h==14&&m>=10) || (h==15&&m<=9)){ //第六節：14:10-15:09
+         else if((h==13&&m>=40) || (h==14&&m<35)){ //第六節：13:40-14:34
             toWhite(t5[day-1]);
-            toWhite(mt5[day-1]);
             toColor(t6[day-1]);
-            toColor(mt6[day-1]);
          }
-         else if((h==15&&m>=10) || (h==16&&m<=9)){ //第七節：15:10-16:09
+         else if((h==14&&m>=35) || (h==15&&m<45)){ //第七節：14:35-15:44
             toWhite(t6[day-1]);
-            toWhite(mt6[day-1]);
             toColor(t7[day-1]);
-            toColor(mt7[day-1]);
+         }
+		 else if((h==15&&m>=45) || (h==16&&m<=59)){ //第八節：15:45-16:59
+            toWhite(t7[day-1]);
+            toColor(t8[day-1]);
          }
          return;
         }
@@ -218,7 +208,7 @@
                         <td id ="b1"><a href="https://classroom.google.com/c/NTE0ODc3ODU2MTA5" target="_blank"><strong>體育</strong></a></td>
                         <td id ="c1"><a href="https://meet.google.com/wrb-kwrm-hbp?authuser=0&hs=179" target="_blank"><strong>生物</strong></a></td>
                         <td id ="d1"><a href="https://classroom.google.com/c/Mzc3NzQ5MjgyNDY5" target="_blank"><strong>數學</strong></a></td>
-                        <td id ="e1"><a href="" target="_blank" style="color: red;"><strong>彈性</strong></a></td>
+                        <td id ="e1"><a href="https://meet.google.com/yzz-vmjs-thb?authuser=0&hs=179" target="_blank" ><strong>彈性</strong></a></td>
                      </tr>
                      <tr>
                         <td>9:10-10:00</td>
@@ -226,7 +216,7 @@
                         <td id ="b2"><a href="https://classroom.google.com/c/NTE0ODc3ODU2MTA5" target="_blank"><strong>體育</strong></a></td>
                         <td id ="c2"><a href="https://classroom.google.com/c/Mzc5MzYyMTk4NDU4" target="_blank"><strong>英文</strong></a></td>
                         <td id ="d2"><a href="https://classroom.google.com/c/Mzg4NjkwNjIxNjQx" target="_blank"><strong>音樂</strong></a></td>
-                        <td id ="e2"><a href="" target="_blank" style="color: red;"><strong>彈性</strong></a></td>
+                        <td id ="e2"><a href="https://meet.google.com/yzz-vmjs-thb?authuser=0&hs=179" target="_blank" ><strong>彈性</strong></a></td>
                      </tr>
                      <tr>
                         <td>10:10-11:00</td>
@@ -234,7 +224,7 @@
                         <td id ="b3"><a href="https://classroom.google.com/c/Mzc3NzQ5MjgyNDY5" target="_blank"><strong>數學</strong></a></td>
                         <td id ="c3"><a href="https://classroom.google.com/c/Mzc3NzQ5MjgyNDY5" target="_blank"><strong>數學</strong></a></td>
                         <td id ="d3"><a href="https://classroom.google.com/c/Mzc5MzYyMTk4NDU4" target="_blank"><strong>英文</strong></a></td>
-                        <td id ="e3"><a href="" target="_blank" style="color: red;"><strong>多元</strong></a></td>
+                        <td id ="e3"><a href="https://meet.google.com/bsh-fmow-vce?authuser=0&hs=179" target="_blank" ><strong>多元</strong></a></td>
                      </tr>
                      <tr>
                         <td>11:10-12:00</td>
@@ -242,13 +232,13 @@
                         <td id ="b4"><a href="https://classroom.google.com/c/Mzc5MzYyMTk4NDU4" target="_blank"><strong>英文</strong></a></td>
                         <td id ="c4"><a href="https://classroom.google.com/c/Mzc3ODQ5NTMzODk1" target="_blank"><strong>國文</strong></a></td>
                         <td id ="d4"><a href="https://classroom.google.com/c/Mzc3ODM0Nzc4MzU4" target="_blank"><strong>公民</strong></a></td>
-                        <td id ="e4"><a href="" target="_blank" style="color: red;"><strong>多元</strong></a></td>
+                        <td id ="e4"><a href="https://meet.google.com/bsh-fmow-vce?authuser=0&hs=179" target="_blank" ><strong>多元</strong></a></td>
                      </tr>
                      <tr>
                         <td>1:10-2:00</td>
                         <td id ="a5"><a href="https://classroom.google.com/c/Mzc3NzQxMDExMjY5" target="_blank"><strong>地理</strong></a></td>
                         <td id ="b5"><a href="https://meet.google.com/wrb-kwrm-hbp?authuser=0&hs=179" target="_blank"><strong>生物</strong></a></td>
-                        <td id ="c5"><a href="https://classroom.google.com/c/MzkyNDg5OTMzNDcx" target="_blank" style="color: red;"><strong>彈性</strong></a></td>
+                        <td id ="c5"><a href="https://classroom.google.com/c/MzkyNDg5OTMzNDcx" target="_blank" ><strong>彈時</strong></a></td>
                         <td id ="d5"><a href="https://classroom.google.com/c/MzgzMDc2MjIxMjI4" target="_blank"><strong>資訊</strong></a></td>
                         <td id ="e5"><a href="https://classroom.google.com/c/Mzc3ODQ5NTMzODk1" target="_blank"><strong>國文</strong></a></td>
                      </tr>
@@ -257,24 +247,24 @@
                         <td id ="a6"><a href="https://classroom.google.com/c/Mzc3NzQ5MjgyNDY5" target="_blank"><strong>數學</strong></a></td>
                         <td id ="b6"><a href="https://meet.google.com/gwp-qewb-vti?authuser=0&hs=179" target="_blank"><strong>化學</strong></a></td>
                         <td id ="c6"><a href="https://classroom.google.com/c/Mzc3NzQxMDExMjY5" target="_blank"><strong>地理</strong></a></td>
-                        <td id ="d6"><a href="https://classroom.google.com/c/NTA2MDYwMjAyMTYz" target="_blank" style="color: red;"><strong>研究</strong></a></td>
-                        <td id ="e6"><a href="" target="_blank" style="color: red;"><strong>團體</strong></a></td>
+                        <td id ="d6"><a href="https://classroom.google.com/c/MzkyNDg5OTMzNDcx" target="_blank" ><strong>研究</strong></a></td>
+                        <td id ="e6"><a href="" target="_blank" ><strong>社團</strong></a></td>
                      </tr>
                      <tr>
-                        <td>3:15-4:05</td>
+                        <td>3:15-4:00</td>
                         <td id ="a7"><a href="https://classroom.google.com/c/Mzc3ODQ5NTMzODk1" target="_blank"><strong>國文</strong></a></td>
                         <td id ="b7"><a href="https://classroom.google.com/c/Mzc3ODQ5NTMzODk1" target="_blank"><strong>國文</strong></a></td>
                         <td id ="c7"><a href="https://classroom.google.com/c/MjI2NDg5ODg0NTg0" target="_blank"><strong>歷史</strong></a></td>
-                        <td id ="d7"><a href="https://classroom.google.com/c/NDY5Njc4ODMzODg5" target="_blank" style="color: red;"><strong>生命</strong></a></td>
-                        <td id ="e7"><a href="" target="_blank" style="color: red;"><strong>團體</strong></a></td>
+                        <td id ="d7"><a href="https://classroom.google.com/c/NDY5Njc4ODMzODg5" target="_blank" ><strong>生命</strong></a></td>
+                        <td id ="e7"><a href="" target="_blank" ><strong>社團</strong></a></td>
                      </tr>
                      <tr>
                         <td>4:05-5:00</td>
-                        <td id ="a7"><a href="https://classroom.google.com/c/Mzc3NzQ5MjgyNDY5" target="_blank"><strong>數學</strong></a></td>
-                        <td id ="b7"><a href="https://classroom.google.com/c/Mzc3ODQ5NTMzODk1" target="_blank"><strong>國文</strong></a></td>
-                        <td id ="c7"><a href="https://classroom.google.com/c/Mzc5MzYyMTk4NDU4" target="_blank"><strong>英文</strong></a></td>
-                        <td id ="d7"><a href="https://classroom.google.com/c/NTIxMDU5NDI3MjYz" target="_blank" style="color: red;"><strong>增能</strong></a></td>
-                        <td id ="e7"><a href="" target="_blank"><strong>x</strong></a></td>
+                        <td id ="a8"><a href="https://classroom.google.com/c/Mzc3NzQ5MjgyNDY5" target="_blank"><strong>數學</strong></a></td>
+                        <td id ="b8"><a href="https://classroom.google.com/c/Mzc3ODQ5NTMzODk1" target="_blank"><strong>國文</strong></a></td>
+                        <td id ="c8"><a href="https://classroom.google.com/c/Mzc5MzYyMTk4NDU4" target="_blank"><strong>英文</strong></a></td>
+                        <td id ="d8"><a href="https://classroom.google.com/c/NTIxMDU5NDI3MjYz" target="_blank" ><strong>增能</strong></a></td>
+                        <td id =""><a href="" target="_blank"><strong></strong></a></td>
                      </tr>				 
                   </tbody>
                </table>
