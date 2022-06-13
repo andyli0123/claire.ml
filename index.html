@@ -71,27 +71,27 @@
       club.src = "https://claire.ml/sound/社團課.wav";
 	  
       var count = 0;
-	//var day=1, h=8, m=0; //for speeder
+	var day=1, h=8, m=0; //for speeder
 	
       function checkUpdateColors(){
          
-         var d = new Date(); 
+         /*var d = new Date(); 
          var h = d.getHours();
          var m = d.getMinutes();
-         var day = d.getDay(); //Sun=0, Mon=1
+         var day = d.getDay(); //Sun=0, Mon=1*/
          
 		//speeder
-		/*m++;
+		m++;
 		if(m>60){
 			h++;
 			m=0;
 		}
 		if(h>23){
 			day++;
-			h=0;
-		}*/
+			h=8;
+		}
 		 
-        if(m>=55&&m<=58){
+        if(m>=50&&m<=59){
             count=0;
         }
 		
@@ -192,7 +192,7 @@
          }
          return;
         }
-      setInterval(checkUpdateColors, 3000);
+      setInterval(checkUpdateColors, 80);
    </script>
 
 
