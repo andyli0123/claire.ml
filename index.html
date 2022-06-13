@@ -70,8 +70,13 @@
 	  const club = document.createElement("audio");
       club.src = "https://claire.ml/sound/社團課.wav";
 	  
+	  const lo = document.createElement("audio");
+      lo.src = "https://claire.ml/sound/0614.wav";
+	  
       var count = 0;
-	//var day=1, h=8, m=0; //for speeder
+	  var love = 0;
+	  
+	  //var day=2, h=15, m=0; //for speeder
 	
       function checkUpdateColors(){
          
@@ -95,7 +100,18 @@
       //國ch 英en 數ma 生物bi 化學ch 地理ge 歷史hi 公民ci 資訊te 體育pe 音樂mu
 	  //彈性學習時間tat 研究方法me 生命life 增能wow 彈性學習tas 多元muti 社團club
 	  
-		//count==0 && h,m,day -> xx.play(); count++;
+	  
+	  
+		/*if(love==0 && (h==15&&(m>=0&&m<=9)) ){
+			lo.play();
+			love++;
+		}*/
+		if(love==0 && (h==23&&m==0) ){
+			lo.play();
+			love++;
+		}
+
+		//count==0 && h,m,day -> xx.play(); count++;		
 		if(count==0){
 			if(h==8&&m==5){
 				if(day==1){      hi.play(); count++; }
