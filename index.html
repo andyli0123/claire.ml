@@ -2,7 +2,7 @@
 <head>
    <meta charset="UTF-8">
    <title>宇蕎寶貝</title>
-   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+   <link rel="icon" type="image/jpg" href="/favicon.jpg">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -24,36 +24,51 @@
       var t7 = ["a7","b7","c7","d7","e7"];
       var t8 = ["a8","b8","c8","d8","e8"];
 
-
       function toWhite(a){
          document.getElementById(a).style.backgroundColor="white";
       }
       function toColor(a){
          document.getElementById(a).style.backgroundColor="aquamarine";
       }
-      
-      /*const ch = document.createElement("audio");
-      //ch.src = "https://nssh.tk/sound/國文課.wav";
+      //國ch 英en 數ma 生物bi 化學ch 地理ge 歷史hi 公民ci 資訊te 體育pe 音樂mu
+	  //彈性學習時間tat 研究方法me 生命life 增能wow 彈性學習tas 多元muti 社團club
+      const ch = document.createElement("audio");
+      ch.src = "https://claire.ml/sound/國文課.wav";
       const en = document.createElement("audio");
-      //en.src = "https://nssh.tk/sound/英文課.wav";
+      en.src = "https://nssh.tk/sound/英文課.wav";
       const ma = document.createElement("audio");
-      //ma.src = "https://nssh.tk/sound/數學課.wav";
-      const ph = document.createElement("audio");
-      //ph.src = "https://nssh.tk/sound/物理課.wav";
-      const ce = document.createElement("audio");
-      //ce.src = "https://nssh.tk/sound/化學課.wav";
-      const bi = document.createElement("audio");
-      //bi.src = "https://nssh.tk/sound/生物課.wav";
-      const es = document.createElement("audio");
-      //es.src = "https://nssh.tk/sound/地科課.wav";
-      const el = document.createElement("audio");
-      //el.src = "https://nssh.tk/sound/英聽課.wav";
-      const ta = document.createElement("audio");
-      //ta.src = "https://nssh.tk/sound/彈性課.wav";
-      const ps = document.createElement("audio");
-      //ps.src = "https://nssh.tk/sound/體育課.wav";*/
-
-
+      ma.src = "https://nssh.tk/sound/數學課.wav";
+	  const bi = document.createElement("audio");
+      bi.src = "https://nssh.tk/sound/生物課.wav";
+      const ch = document.createElement("audio");
+      ch.src = "https://nssh.tk/sound/化學課.wav";
+      const ge = document.createElement("audio");
+      ge.src = "https://nssh.tk/sound/地理課.wav";
+      const hi = document.createElement("audio");
+      hi.src = "https://nssh.tk/sound/歷史課.wav";
+      const ci = document.createElement("audio");
+      ci.src = "https://nssh.tk/sound/公民課.wav";
+      const te = document.createElement("audio");
+      te.src = "https://nssh.tk/sound/資訊課.wav";
+	  const pe = document.createElement("audio");
+      pe.src = "https://nssh.tk/sound/體育課.wav";
+	  const mu = document.createElement("audio");
+      mu.src = "https://nssh.tk/sound/音樂課.wav";
+      const tat = document.createElement("audio");
+      tat.src = "https://nssh.tk/sound/彈性學習時間.wav";
+	  const me = document.createElement("audio");
+      me.src = "https://nssh.tk/sound/研究方法.wav";
+	  const life = document.createElement("audio");
+      life.src = "https://nssh.tk/sound/生命教育.wav";
+	  const wow = document.createElement("audio");
+      wow.src = "https://nssh.tk/sound/增能輔導.wav";
+	  const tas = document.createElement("audio");
+      tas.src = "https://nssh.tk/sound/彈性學習.wav";
+	  const muti = document.createElement("audio");
+      muti.src = "https://nssh.tk/sound/多元選修.wav";
+	  const club = document.createElement("audio");
+      club.src = "https://nssh.tk/sound/社團課.wav";
+	  
       var count = 0;
 	//var day=1, h=8, m=0; //for speeder
 	
@@ -64,7 +79,6 @@
          var m = d.getMinutes();
          var day = d.getDay(); //Sun=0, Mon=1
          
-   
 		//speeder
 		/*m++;
 		if(m>60){
@@ -76,46 +90,67 @@
 			h=0;
 		}*/
 		 
-   
-        if(m>=0&&m<=5){
+        /*if(m>=0&&m<=5){
             count=0;
-        }
+        }*/
+		
+      //國ch 英en 數ma 生物bi 化學ch 地理ge 歷史hi 公民ci 資訊te 體育pe 音樂mu
+	  //彈性學習時間tat 研究方法me 生命life 增能wow 彈性學習tas 多元muti 社團club
+	  
+		//count==0 && h,m,day -> xx.play(); count++;
+		if(count==0){
+			if(h==8&&m==5){
+				if(day==1){      hi.play(); count++; }
+				else if(day==2){ pe.play(); count++; }
+				else if(day==3){ bi.play(); count++; }
+				else if(day==4){ ma.play(); count++; }
+				else if(day==5){ tas.play(); count++; }
+			}else if(h==9&&m==5){
+				if(day==1){      ch.play(); count++; }
+				else if(day==2){ pe.play(); count++; }
+				else if(day==3){ en.play(); count++; }
+				else if(day==4){ mu.play(); count++; }
+				else if(day==5){ tas.play(); count++; }
+			}else if(h==10&&m==5){
+				if(day==1){      ci.play(); count++; }
+				else if(day==2){ ma.play(); count++; }
+				else if(day==3){ ma.play(); count++; }
+				else if(day==4){ en.play(); count++; }
+				else if(day==5){ muti.play(); count++; }
+			}else if(h==11&&m==5){
+				if(day==1){      en.play(); count++; }
+				else if(day==2){ en.play(); count++; }
+				else if(day==3){ ch.play(); count++; }
+				else if(day==4){ ci.play(); count++; }
+				else if(day==5){ muti.play(); count++; }
+			}else if(h==13&&m==5){
+				if(day==1){      ge.play(); count++; }
+				else if(day==2){ bi.play(); count++; }
+				else if(day==3){ tat.play(); count++; }
+				else if(day==4){ te.play(); count++; }
+				else if(day==5){ ch.play(); count++; }
+			}else if(h==14&&m==0){
+				if(day==1){      ma.play(); count++; }
+				else if(day==2){ ch.play(); count++; }
+				else if(day==3){ he.play(); count++; }
+				else if(day==4){ me.play(); count++; }
+				else if(day==5){ club.play(); count++; }
+			}else if(h==15&&m==10){
+				if(day==1){      ch.play(); count++; }
+				else if(day==2){ ch.play(); count++; }
+				else if(day==3){ hi.play(); count++; }
+				else if(day==4){ life.play(); count++; }
+				else if(day==5){ club.play(); count++; }
+			}else if(h==16&&m==0){
+				if(day==1){      ma.play(); count++; }
+				else if(day==2){ ch.play(); count++; }
+				else if(day==3){ en.play(); count++; }
+				else if(day==4){ wow.play(); count++; }
+			}
+		}
 
-
-        /*if(count==0&&( h==8&&m==19&&(day>=1&&day<=5) )){
-            ta.play(); //彈性
-            count++;
-         }else if(count==0&&((h==15&&m==29&&day==1) || (h==11&&m==19&&(day==2||day==3)) || (h==13&&m==29&&(day==4||day==5)) || (h==14&&m==29&&day==5) )){
-            ch.play(); //國文
-            count++;
-         }else if(count==0&&( (h==14&&m==29&&(day>=1&&day<=3)) || (h==13&&m==29&&day==3) || (h==11&&m==19&&day==4) || (h==15&&m==29&&day==5) )){
-            en.play(); //英文
-            count++;
-         }else if(count==0&&( (h==9&&m==19&&(day==3||day==5)) || (h==10&&m==19&&day==2) || (h==13&&m==29&&day==1)  || (h==14&&m==29&&day==4) || (h==15&&m==29&&day==4) )){
-            ma.play(); //數學
-            count++;
-         }else if(count==0&&( (h==9&&m==19&&day==1) || (h==10&&m==19&&day==1) || (h==15&&m==29&&day==2) )){
-            ph.play(); //物理
-            count++;
-         }else if(count==0&&( (h==9&&m==19&&day==2) || (h==10&&m==19&&day==4) || (h==11&&m==19&&day==5) )){
-            ce.play(); //化學
-            count++;
-         }else if(count==0&&( (h==10&&m==19&&day==3) || (h==9&&m==19&&day==4) )){
-            bi.play(); //生物
-            count++;
-         }else if(count==0&&( (h==15&&m==29&&day==3)||(h==10&&m==19&&day==5) )){
-            es.play(); //地科
-            count++;
-         }else if(count==0&&( h==13&&m==29&&day==2 )){
-            el.play(); //英聽
-            count++;
-         }else if(count==0&&( h==11&&m==19&&day==1 )){
-            ps.play(); //體育
-            count++;
-         }*/
+      
 		 
-		 
-
          if((h>=17)){ //第一節：前一天的17:00-24:00
             toWhite(t8[day-1]);
             toColor(t1[day]);
@@ -270,14 +305,7 @@
                </table>
             </div>
          </div><!--a end-->
-<!--
-         <div class="alert alert-warning text-center" role="alert" style="width: 200px; margin-left: auto; margin-right: auto;">
-            【調課】<br>
-            8/3(二) 第7節 數學<br>
-            8/4(三) 第3節 化學<br>
-            8/5(四) 第3節 生物<br>
-          </div>
--->
+
          <div class="tab-pane fade" id="b"> <!--b start-->
             
          </div><!--b end-->
