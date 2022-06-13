@@ -30,7 +30,7 @@
       function toColor(a){
          document.getElementById(a).style.backgroundColor="aquamarine";
       }
-      //國ch 英en 數ma 生物bi 化學ch 地理ge 歷史hi 公民ci 資訊te 體育pe 音樂mu
+      //國ch 英en 數ma 生物bi 化學che 地理ge 歷史hi 公民ci 資訊te 體育pe 音樂mu
 	  //彈性學習時間tat 研究方法me 生命life 增能wow 彈性學習tas 多元muti 社團club
 	  
       const ch = document.createElement("audio");
@@ -41,8 +41,8 @@
       ma.src = "https://claire.ml/sound/數學課.wav";
 	  const bi = document.createElement("audio");
       bi.src = "https://claire.ml/sound/生物課.wav";
-      const ch = document.createElement("audio");
-      ch.src = "https://claire.ml/sound/化學課.wav";
+      const che = document.createElement("audio");
+      che.src = "https://claire.ml/sound/化學課.wav";
       const ge = document.createElement("audio");
       ge.src = "https://claire.ml/sound/地理課.wav";
       const hi = document.createElement("audio");
@@ -107,7 +107,7 @@
 				else if(day==4){ ma.play(); count++; }
 				else if(day==5){ tas.play(); count++; }
 			}else if(h==9&&m==5){
-				if(day==1){      ch.play(); count++; }
+				if(day==1){      che.play(); count++; }
 				else if(day==2){ pe.play(); count++; }
 				else if(day==3){ en.play(); count++; }
 				else if(day==4){ mu.play(); count++; }
@@ -132,7 +132,7 @@
 				else if(day==5){ ch.play(); count++; }
 			}else if(h==14&&m==0){
 				if(day==1){      ma.play(); count++; }
-				else if(day==2){ ch.play(); count++; }
+				else if(day==2){ che.play(); count++; }
 				else if(day==3){ he.play(); count++; }
 				else if(day==4){ me.play(); count++; }
 				else if(day==5){ club.play(); count++; }
